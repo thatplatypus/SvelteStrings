@@ -1,0 +1,33 @@
+.json-editor-wrapper .jse-main {
+	--jse-background-color: var(--background);
+	--jse-text-color: var(--foreground);
+	--jse-panel-background: var(--card);
+	--jse-panel-border: var(--border);
+	--jse-delimiter-color: var(--muted-foreground);
+	--jse-key-color: var(--tool-accent);
+	--jse-value-color-string: var(--foreground);
+	--jse-value-color-number: #22c55e;
+	--jse-value-color-boolean: #f59e0b;
+	--jse-value-color-null: var(--muted-foreground);
+	--jse-menu-color: var(--foreground);
+	--jse-context-menu-background: var(--popover);
+	--jse-context-menu-color: var(--popover-foreground);
+	--jse-selection-background-color: rgba(var(--tool-accent-rgb), 0.15);
+	--jse-input-background: var(--input);
+	--jse-input-border: var(--border);
+	--jse-button-primary-background: var(--tool-accent);
+	--jse-tag-background: rgba(var(--tool-accent-rgb), 0.1);
+	--jse-tag-color: var(--tool-accent);
+	border: none;
+	height: 100%;
+}
+
+.json-editor-wrapper .jse-main .jse-menu {
+	border-bottom: 1px solid var(--border);
+}
+
+.json-editor-wrapper {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
