@@ -20,7 +20,7 @@
 		{#snippet footer()}
 			<ThemeToggle />
 			<a
-				href="https://github.com/user/SvelteStrings"
+				href="https://github.com/thatplatypus/SvelteStrings"
 				target="_blank"
 				rel="noopener noreferrer"
 				aria-label="GitHub repository"
