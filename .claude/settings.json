@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm info *)",
+      "Bash(mkdir -p /tmp/sveltestrings-backup)",
+      "Bash(cp -r docs /tmp/sveltestrings-backup/)",
+      "Bash(cp -r .claude /tmp/sveltestrings-backup/)",
+      "Bash(cp -r .superpowers /tmp/sveltestrings-backup/)",
+      "Read(//tmp/**)",
+      "Bash(npx sv *)",
+      "Bash(npx shadcn-svelte@latest init --style new-york --base-color zinc --css src/app.css --components '$lib/components' --utils '$lib/utils' --no-deps)",
+      "Bash(npx shadcn-svelte@latest init --help)",
+      "Bash(npx shadcn-svelte@latest init --base-color zinc --css src/app.css --components-alias '$lib/components' --utils-alias '$lib/utils' --no-deps)",
+      "Bash(npx shadcn-svelte@latest init --preset new-york --base-color zinc --css src/app.css --components-alias '$lib/components' --utils-alias '$lib/utils' --no-deps)",
+      "Bash(npx shadcn-svelte@latest init --preset default --base-color zinc --css src/app.css --components-alias '$lib/components' --utils-alias '$lib/utils' --no-deps)",
+      "WebFetch(domain:shadcn-svelte.com)",
+      "WebFetch(domain:next.shadcn-svelte.com)",
+      "Bash(npx shadcn-svelte@latest init --design-system-url https://shadcn-svelte.com/registry/themes/zinc --base-color zinc --css src/app.css --components-alias '$lib/components' --utils-alias '$lib/utils' --no-deps)",
+      "Bash(npx shadcn-svelte@latest init --design-system-url=https://shadcn-svelte.com/registry/themes/zinc --base-color zinc --css src/app.css '--components-alias=$lib/components' '--utils-alias=$lib/utils' --no-deps)",
+      "Bash(npx shadcn-svelte@latest init --preset https://shadcn-svelte.com/registry/styles/new-york-zinc.json --base-color zinc --css src/app.css --components-alias '$lib/components' --utils-alias '$lib/utils' --no-deps)",
+      "Read(//Users/tombrewer/.npm/_npx/**)",
+      "Bash(npm pack *)",
+      "Bash(npm show *)",
+      "Bash(npx shadcn-svelte@latest init --preset bcivVKXQ --css src/app.css --components-alias '$lib/components' --utils-alias '$lib/utils' --no-deps)",
+      "Bash(npx shadcn-svelte@latest init --preset bcivVKXQ --css src/app.css --components-alias '$lib/components' --utils-alias '$lib/utils' --lib-alias '$lib' --hooks-alias '$lib/hooks' --ui-alias '$lib/components/ui' --no-deps)",
+      "Bash(npx shadcn-svelte@latest init --preset bcivVKXQ --css src/app.css --components-alias '$lib/components' --utils-alias '$lib/utils' --lib-alias '$lib' --hooks-alias '$lib/hooks' --ui-alias '$lib/components/ui' --no-deps --overwrite)",
+      "Bash(npx shadcn-svelte@latest add button separator tooltip toggle-group badge sidebar --overwrite --no-deps)",
+      "Bash(npx shadcn-svelte@latest add --help)",
+      "Bash(npx shadcn-svelte@latest add button separator tooltip toggle-group badge sidebar --overwrite --no-deps -y)",
+      "Bash(npm uninstall *)"
+    ]
+  }
+}
