@@ -72,6 +72,7 @@
 		color: currentColor;
 		text-shadow: 0 0 5px currentColor;
 		animation: fall 5s linear infinite;
+		will-change: transform, opacity;
 	}
 
 	.letter::after {
