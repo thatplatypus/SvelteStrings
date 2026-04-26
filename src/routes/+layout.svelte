@@ -5,12 +5,34 @@
 	import AppSidebar from '$lib/components/layout/AppSidebar.svelte';
 	import ThemeToggle from '$lib/components/layout/ThemeToggle.svelte';
 	import favicon from '$lib/assets/favicon.svg';
+	import { pwaInfo } from 'virtual:pwa-info';
+	import { onMount } from 'svelte';
 	import '../app.css';
 
 	let { children } = $props();
+
+	let settingsOpen = $state(false);
+
+	onMount(async () => {
+		const { registerSW } = await import('virtual:pwa-register');
+		registerSW({ immediate: true });
+	});
+
+	const activeColor = $derived.by(() => {
+		const path = $page.url.pathname;
+		const tool = tools.find((t) => path === `${base}${t.route}`);
+		return tool?.color ?? settings.accentColor;
+	});
+
+	const activeColorRgb = $derived(hexToRgb(activeColor));
 </script>
 
-<svelte:head><link rel="icon" href={favicon} /></svelte:head>
+<svelte:head>
+	<link rel="icon" href={favicon} />
+	{#if pwaInfo?.webManifest?.href}
+		<link rel="manifest" href={pwaInfo.webManifest.href} crossorigin="use-credentials" />
+	{/if}
+</svelte:head>
 
 <ModeWatcher />
 <Toaster richColors />
