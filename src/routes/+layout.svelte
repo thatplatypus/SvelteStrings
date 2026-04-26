@@ -1,9 +1,18 @@
 <script lang="ts">
 	import { ModeWatcher } from 'mode-watcher';
 	import { Toaster } from 'svelte-sonner';
+	import { page } from '$app/stores';
+	import { base } from '$app/paths';
 	import * as Sidebar from '$lib/components/ui/sidebar';
 	import AppSidebar from '$lib/components/layout/AppSidebar.svelte';
 	import ThemeToggle from '$lib/components/layout/ThemeToggle.svelte';
+	import SettingsDialog from '$lib/components/layout/SettingsDialog.svelte';
+	import AuroraBackground from '$lib/components/effects/AuroraBackground.svelte';
+	import MatrixBackground from '$lib/components/effects/MatrixBackground.svelte';
+	import { tools } from '$lib/tools/registry';
+	import { settings } from '$lib/stores/settings.svelte';
+	import { hexToRgb } from '$lib/utils/colors';
+	import { Settings } from '@lucide/svelte';
 	import favicon from '$lib/assets/favicon.svg';
 	import { pwaInfo } from 'virtual:pwa-info';
 	import { onMount } from 'svelte';
@@ -38,8 +47,15 @@
 <Toaster richColors />
 
 <Sidebar.Provider>
-	<AppSidebar>
+	<AppSidebar {activeColorRgb}>
 		{#snippet footer()}
+			<button
+				onclick={() => (settingsOpen = true)}
+				class="inline-flex size-8 items-center justify-center rounded-md text-muted-foreground hover:text-foreground transition-colors"
+				aria-label="Settings"
+			>
+				<Settings class="size-4" />
+			</button>
 			<ThemeToggle />
 			<a
 				href="https://github.com/thatplatypus/SvelteStrings"
@@ -67,8 +83,17 @@
 	</AppSidebar>
 
 	<Sidebar.Inset>
-		<main class="flex h-screen flex-col overflow-hidden">
-			{@render children()}
+		<main class="relative flex h-screen flex-col overflow-hidden">
+			{#if settings.backgroundEffect === 'aurora'}
+				<AuroraBackground colorRgb={activeColorRgb} />
+			{:else if settings.backgroundEffect === 'matrix'}
+				<MatrixBackground colorHex={activeColor} />
+			{/if}
+			<div class="relative z-10 flex flex-1 flex-col overflow-hidden">
+				{@render children()}
+			</div>
 		</main>
 	</Sidebar.Inset>
 </Sidebar.Provider>
+
+<SettingsDialog bind:open={settingsOpen} />

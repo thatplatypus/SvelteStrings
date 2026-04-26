@@ -4,7 +4,7 @@
 
 <div class="flex-1 overflow-auto">
   <div class="mx-auto max-w-7xl">
-    <div class="px-6 pt-6">
+    <div class="rounded-lg px-6 pt-6 backdrop-blur-xs">
       <h1 class="text-2xl font-bold tracking-tight">SvelteStrings</h1>
       <p class="mt-1 text-muted-foreground">Developer string toolkit</p>
     </div>

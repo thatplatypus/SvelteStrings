@@ -10,7 +10,7 @@
 
 <a
 	href="{base}{tool.route}"
-	class="tool-card group relative overflow-hidden rounded-xl border p-6 transition-all duration-200 ease-out"
+	class="tool-card group relative overflow-hidden rounded-xl border p-6 backdrop-blur-xs transition-all duration-200 ease-out"
 	style="
 		--card-rgb: {rgb};
 		--card-color: {tool.color};

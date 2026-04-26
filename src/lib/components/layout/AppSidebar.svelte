@@ -7,11 +7,15 @@
 	import { useSidebar } from '$lib/components/ui/sidebar/context.svelte';
 	import { PanelLeftClose, PanelLeftOpen } from '@lucide/svelte';
 
-	let { footer }: { footer?: Snippet } = $props();
+	let { footer, activeColorRgb = '' }: { footer?: Snippet; activeColorRgb?: string } = $props();
 	const currentPath = $derived($page.url.pathname);
 	const sidebar = useSidebar();
 </script>
 
+<div
+	class="themed-sidebar"
+	style={activeColorRgb ? `--sb-rgb: ${activeColorRgb};` : ''}
+>
 <Sidebar.Root collapsible="icon">
 	<Sidebar.Header>
 		<a href="{base}/" class="flex items-center gap-2 px-2 py-1.5">
@@ -66,3 +70,23 @@
 
 	<Sidebar.Rail />
 </Sidebar.Root>
+</div>
+
+<style>
+	.themed-sidebar :global([data-slot="sidebar-inner"]) {
+		transition: background 300ms ease, border-color 300ms ease;
+	}
+
+	.themed-sidebar[style*="--sb-rgb"] :global([data-slot="sidebar-inner"]) {
+		background: linear-gradient(
+			180deg,
+			rgba(var(--sb-rgb), 0.10) 0%,
+			rgba(var(--sb-rgb), 0.02) 100%
+		);
+	}
+
+	.themed-sidebar[style*="--sb-rgb"] :global([data-slot="sidebar-container"]) {
+		border-right: 2px solid rgba(var(--sb-rgb), 0.45);
+		transition: border-color 300ms ease;
+	}
+</style>

@@ -30,7 +30,7 @@
 
 <div class="flex h-full flex-col" style="--tool-accent: {tool.color}; --tool-accent-rgb: {rgb};">
 	<!-- Slim header -->
-	<div class="flex items-center gap-3 border-b px-4 py-2.5">
+	<div class="flex items-center gap-3 border-b px-4 py-2.5 backdrop-blur-xs">
 		<tool.icon class="size-5" style="color: {tool.color}" />
 		<h1 class="text-sm font-semibold">{tool.name}</h1>
 		{#if controls}
@@ -45,7 +45,7 @@
 		{#if tool.layout === 'split'}
 			<div class="grid h-full grid-cols-1 gap-4 md:grid-cols-2">
 				<!-- Input panel -->
-				<div class="flex flex-col overflow-hidden rounded-lg border">
+				<div class="flex flex-col overflow-hidden rounded-lg border backdrop-blur-xs">
 					<div class="flex items-center justify-between border-b px-3 py-1.5">
 						<span class="text-xs font-medium uppercase tracking-wider text-muted-foreground"
 							>Input</span
@@ -59,7 +59,7 @@
 					</div>
 				</div>
 				<!-- Output panel -->
-				<div class="flex flex-col overflow-hidden rounded-lg border">
+				<div class="flex flex-col overflow-hidden rounded-lg border backdrop-blur-xs">
 					<div class="flex items-center justify-between border-b px-3 py-1.5">
 						<span class="text-xs font-medium uppercase tracking-wider text-muted-foreground"
 							>Output</span
@@ -74,14 +74,14 @@
 				</div>
 			</div>
 		{:else if tool.layout === 'single'}
-			<div class="h-full overflow-hidden rounded-lg border">
+			<div class="h-full overflow-hidden rounded-lg border backdrop-blur-xs">
 				{@render input()}
 			</div>
 		{:else if tool.layout === 'dual-input'}
 			<div class="grid h-full grid-cols-1 gap-4 md:grid-cols-2">
 				<div class="flex flex-col gap-4">
 					<!-- First input -->
-					<div class="flex flex-1 flex-col overflow-hidden rounded-lg border">
+					<div class="flex flex-1 flex-col overflow-hidden rounded-lg border backdrop-blur-xs">
 						<div class="flex items-center justify-between border-b px-3 py-1.5">
 							<span class="text-xs font-medium uppercase tracking-wider text-muted-foreground"
 								>Original</span
@@ -96,7 +96,7 @@
 					</div>
 					<!-- Second input -->
 					{#if secondInput}
-						<div class="flex flex-1 flex-col overflow-hidden rounded-lg border">
+						<div class="flex flex-1 flex-col overflow-hidden rounded-lg border backdrop-blur-xs">
 							<div class="flex items-center justify-between border-b px-3 py-1.5">
 								<span class="text-xs font-medium uppercase tracking-wider text-muted-foreground"
 									>Modified</span
@@ -112,7 +112,7 @@
 					{/if}
 				</div>
 				<!-- Output -->
-				<div class="flex flex-col overflow-hidden rounded-lg border">
+				<div class="flex flex-col overflow-hidden rounded-lg border backdrop-blur-xs">
 					<div class="flex items-center justify-between border-b px-3 py-1.5">
 						<span class="text-xs font-medium uppercase tracking-wider text-muted-foreground"
 							>Diff</span
